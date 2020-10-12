@@ -1,3 +1,1 @@
-## 0.1.0 (Unreleased)
-
-BACKWARDS INCOMPATIBILITIES / NOTES:
+All version information can be found on the repository's releases page.
