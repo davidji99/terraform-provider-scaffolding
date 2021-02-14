@@ -1,7 +1,5 @@
 name: tests
 on: [pull_request, push]
-env:
-  GO111MODULE: on
 
 jobs:
   test:
@@ -12,13 +10,13 @@ jobs:
     runs-on: ${{ matrix.platform }}
     
     steps:
-      - uses: actions/setup-go@v1
+      - uses: actions/setup-go@v2.1.3
         with:
           go-version: ${{ matrix.go-version }}
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v2.3.4
       
       - name: Cache go modules
-        uses: actions/cache@v1
+        uses: actions/cache@v2.1.4
         with:
           path: ~/go/pkg/mod
           key: ${{ runner.os }}-go-${{ hashFiles('go.sum') }}
