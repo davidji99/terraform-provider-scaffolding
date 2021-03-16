@@ -1,20 +1,22 @@
 name: tests
 on: [pull_request, push]
+env:
+  GO111MODULE: on
 
 jobs:
   test:
     strategy:
       matrix:
-        go-version: [1.14.x, 1.15.x]
+        go-version: [1.15.x, 1.16.x]
         platform: [ubuntu-latest]
     runs-on: ${{ matrix.platform }}
-    
+
     steps:
       - uses: actions/setup-go@v2.1.3
         with:
           go-version: ${{ matrix.go-version }}
       - uses: actions/checkout@v2.3.4
-      
+
       - name: Cache go modules
         uses: actions/cache@v2.1.4
         with:
@@ -27,7 +29,7 @@ jobs:
         run: |
           make fmt
           git diff --exit-code; code=$?; git checkout -- .; (exit $code)
-        
+
       - name: Run go vet
         run: go vet ./...
 
@@ -39,4 +41,4 @@ jobs:
         run: make build
 
       - name: Run make test
-        run: make testacc TEST="./<REPLACE_ME>/"
+        run: make testacc TEST="./herokux/" TESTARGS='-run=TestProvider'
