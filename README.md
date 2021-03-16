@@ -6,8 +6,8 @@ Some general information about this provider.
 Requirements
 ------------
 
-- [Terraform](https://www.terraform.io/downloads.html) `v0.12.x`+
-- [Go](https://golang.org/doc/install) 1.14 (to build the provider plugin)
+- [Terraform](https://www.terraform.io/downloads.html) `v0.13.x`+
+- [Go](https://golang.org/doc/install) 1.16 (to build the provider plugin)
 
 Usage
 -----
@@ -18,7 +18,7 @@ provider "<REPLACE_ME>" {
 }
 ```
 
-This provider is not compatible with terraform `v0.11.x`.
+This provider is not compatible with terraform `v0.12` and below.
 
 Development
 -----------
